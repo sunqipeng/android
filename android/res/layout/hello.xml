@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent" android:orientation="vertical">
+    <TextView android:id="@+id/tv2" android:layout_height="wrap_content" android:layout_width="fill_parent"
+              android:text="第二个页面的文本内容"></TextView>
+    <Button android:id="@+id/endOperation" android:layout_width="fill_parent" android:layout_height="wrap_content"
+            android:text="结束"></Button>
+</LinearLayout>
