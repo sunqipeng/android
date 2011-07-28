@@ -13,5 +13,7 @@
     <Button android:id="@+id/btn" android:text="测试" android:layout_height="wrap_content"
             android:layout_width="fill_parent"></Button>
     <EditText android:id="@+id/e" android:layout_height="wrap_content" android:layout_width="fill_parent"></EditText>
+    <com.example.AppView android:layout_height="wrap_content" android:layout_width="fill_parent"
+                         android:id="@+id/appv"></com.example.AppView>
 </LinearLayout>
 
