@@ -14,10 +14,6 @@ public final class R {
         public static final int icon=0x7f020000;
     }
     public static final class id {
-        public static final int b1=0x7f060005;
-        public static final int b2=0x7f060006;
-        public static final int b3=0x7f060007;
-        public static final int b4=0x7f060008;
         public static final int btn=0x7f060003;
         public static final int e=0x7f060004;
         public static final int endOperation=0x7f060001;

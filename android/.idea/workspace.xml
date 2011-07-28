@@ -62,11 +62,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MyActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="MyActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/MyActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="26" selection-start="2705" selection-end="2705" vertical-scroll-proportion="1.7322835">
+            <state line="17" column="58" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppView.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/example/AppView.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="4" selection-start="590" selection-end="590" vertical-scroll-proportion="0.84771574">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,6 +95,15 @@
         <entry file="file://$PROJECT_DIR$/res/layout/hello.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state line="8" column="30" selection-start="549" selection-end="549" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="main.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="117" selection-start="738" selection-end="738" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -119,7 +139,7 @@
       <file leaf-file-name="R.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gen/com/example/R.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="19" selection-start="608" selection-end="608" vertical-scroll-proportion="0.0">
+            <state line="15" column="19" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -141,7 +161,6 @@
       <list>
         <option value="$PROJECT_DIR$/res/layout/hello.xml" />
         <option value="$PROJECT_DIR$/src/com/example/ResultActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/example/AppView.java" />
         <option value="$PROJECT_DIR$/src/com/example/AppService.java" />
         <option value="$PROJECT_DIR$/src/com/example/AppBroderCaster.java" />
         <option value="$PROJECT_DIR$/src/com/example/AppBoundService.java" />
@@ -149,9 +168,10 @@
         <option value="$PROJECT_DIR$/src/com/example/AppIntentService.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/com/example/BoundService.java" />
-        <option value="$PROJECT_DIR$/res/layout/main.xml" />
         <option value="$PROJECT_DIR$/res/menu/menu.xml" />
+        <option value="$PROJECT_DIR$/res/layout/main.xml" />
         <option value="$PROJECT_DIR$/src/com/example/MyActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/example/AppView.java" />
       </list>
     </option>
   </component>
@@ -641,21 +661,6 @@
         <state line="177" column="14" selection-start="15689" selection-end="15755" vertical-scroll-proportion="0.43307087" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="104" selection-start="725" selection-end="725" vertical-scroll-proportion="0.5329949" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/menu/menu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="57" selection-start="518" selection-end="518" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/hello.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="30" selection-start="549" selection-end="549" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/BoundService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="18" column="48" selection-start="396" selection-end="407" vertical-scroll-proportion="0.0" />
@@ -673,13 +678,41 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gen/com/example/R.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="19" selection-start="608" selection-end="608" vertical-scroll-proportion="0.0" />
+        <state line="15" column="19" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/menu/menu.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="57" selection-start="518" selection-end="518" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/hello.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="30" selection-start="549" selection-end="549" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="117" selection-start="738" selection-end="738" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/MyActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="26" selection-start="2705" selection-end="2705" vertical-scroll-proportion="1.7322835">
+        <state line="17" column="58" selection-start="454" selection-end="454" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/AppView.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="4" selection-start="590" selection-end="590" vertical-scroll-proportion="0.84771574">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
