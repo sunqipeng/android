@@ -1,16 +1,17 @@
 package com.example;
 
 import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.ServiceConnection;
+import android.content.*;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.IBinder;
+import android.os.Message;
+import android.text.Editable;
+import android.text.method.KeyListener;
 import android.util.Log;
-import android.view.Menu;
-import android.view.View;
+import android.view.*;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MyActivity extends Activity {
@@ -48,16 +49,75 @@ public class MyActivity extends Activity {
         setContentView(R.layout.main);
         Button btn = (Button) this.findViewById(R.id.btn);
         Intent intent = new Intent(MyActivity.this, BoundService.class);
+        ContentResolver cr = this.getContentResolver();
+
         MyActivity.this.bindService(intent, MyActivity.this.sc, Context.BIND_AUTO_CREATE);
+
 
         if (lb == null) {
             Log.e("app", "获取的现在是ibinder为空  ");
         } else {
             //Toast.makeText(MyActivity.this, lb.getService().getCurrentDate(), Toast.LENGTH_LONG).show();
         }
+
+        btn.setKeyListener(new KeyListener() {
+            public int getInputType() {
+                return 0;  //To change body of implemented methods use File | Settings | File Templates.
+            }
+
+            public boolean onKeyDown(View view, Editable editable, int i, KeyEvent keyEvent) {
+
+                return false;  //To change body of implemented methods use File | Settings | File Templates.
+            }
+
+            public boolean onKeyUp(View view, Editable editable, int i, KeyEvent keyEvent) {
+                return false;  //To change body of implemented methods use File | Settings | File Templates.
+            }
+
+            public boolean onKeyOther(View view, Editable editable, KeyEvent keyEvent) {
+                return false;  //To change body of implemented methods use File | Settings | File Templates.
+            }
+
+            public void clearMetaKeyState(View view, Editable editable, int i) {
+                //To change body of implemented methods use File | Settings | File Templates.
+            }
+        });
         btn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Toast.makeText(MyActivity.this, lb.getService().getCurrentDate(), Toast.LENGTH_LONG).show();
+                //Toast.makeText(MyActivity.this, lb.getService().getCurrentDate(), Toast.LENGTH_LONG).show();
+                final Handler h = new Handler() {
+                    @Override
+                    public void handleMessage(Message msg) {
+                        TextView tv = (TextView) MyActivity.this.findViewById(R.id.tv);
+                        tv.setText("当前的执行为" + msg.what);
+                        Log.e("app", "当前线程id" + Thread.currentThread().getId());
+                        Toast.makeText(MyActivity.this.getApplicationContext(), "程序执行完毕", Toast.LENGTH_LONG).show();
+                        super.handleMessage(msg);    //To change body of overridden methods use File | Settings | File Templates.
+                    }
+                };
+
+                new Thread(new Runnable() {
+                    public void run() {
+                        int i = 0;
+                        System.out.println("Thread in inner class id is" + Thread.currentThread().getId());
+                        while (i < 115) {
+                            i++;
+
+                            Message m = new Message();
+                            m.what = i;
+                            h.sendMessage(m);
+                            try {
+                                Thread.currentThread().join(1000l);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+                            }
+                        }
+                        Log.e("app", "线程执行完毕");
+
+                    }
+                }).start();
+
+                Log.e("app", "当前线程Outer id" + Thread.currentThread().getId());
             }
         });
     }
@@ -80,8 +140,27 @@ public class MyActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        for (int i = 0; i < 10; i++)
-            menu.add("aaaaaaaaa");
+        this.getMenuInflater().inflate(R.menu.menu, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.isCheckable()) {
+            item.setChecked(!item.isChecked());
+        }
+        return super.onOptionsItemSelected(item);    //To change body of overridden methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+        this.getMenuInflater().inflate(R.menu.menu, menu);
+        this.registerForContextMenu(v);
+        super.onCreateContextMenu(menu, v, menuInfo);    //To change body of overridden methods use File | Settings | File Templates.
+    }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        return super.onContextItemSelected(item);    //To change body of overridden methods use File | Settings | File Templates.
     }
 }
