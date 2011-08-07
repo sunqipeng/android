@@ -6,8 +6,10 @@
     <uses-feature android:name="android.hardware.camera"></uses-feature>
     <uses-feature android:name="android.hardware.camera.autofocus"></uses-feature>
     <uses-permission android:name="android.permission.CAMERA"></uses-permission>
-    <application android:label="@string/app_name" android:icon="@drawable/icon">
-        <activity android:name=".ResultActivity"></activity>
+
+    <application android:label="app程序" android:icon="@drawable/icon">
+
+        <uses-library android:name="com.google.android.maps"></uses-library>
         <activity android:name="MyActivity"
                   android:label="@string/app_name">
             <intent-filter>
@@ -15,6 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <service android:name=".BoundService"></service>
+        <receiver android:name="AppProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE"/>
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                       android:resource="@xml/app"/>
+        </receiver>
     </application>
 </manifest> 

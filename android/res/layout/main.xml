@@ -4,39 +4,13 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
         >
-    <TextView
-            android:id="@+id/tv"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="Hello World, MyActivity"
-            />
-    <Button android:id="@+id/btn" android:text="测试" android:layout_height="wrap_content"
-            android:layout_width="fill_parent"></Button>
-    <SurfaceView android:id="@+id/sv" android:layout_height="200dip" android:layout_width="fill_parent">
+    <TextView android:id="@+id/tv" android:text="ces" android:layout_height="wrap_content"
+              android:layout_width="fill_parent"></TextView>
 
-    </SurfaceView>
-    <EditText android:id="@+id/e" android:layout_height="wrap_content"
+    <EditText android:id="@+id/editor" android:layout_height="wrap_content"
               android:layout_width="fill_parent"></EditText>
-
-    <ListView android:id="@+id/lv" android:layout_width="fill_parent"
-              android:layout_height="wrap_content"></ListView>
-    <RelativeLayout android:layout_height="fill_parent" android:layout_width="fill_parent">
-        <TextView android:text="这里是照片" android:id="@+id/tt1" android:layout_width="wrap_content"
-                  android:layout_height="fill_parent">
-
-        </TextView>
-        <TextView android:id="@+id/num" android:layout_height="wrap_content" android:text="这里是电话好吗"
-                  android:layout_width="wrap_content" android:layout_toRightOf="@id/tt1"></TextView>
-        <TextView android:id="@+id/tt3" android:layout_width="wrap_content"
-                  android:layout_height="wrap_content" android:text="那天离开你留下几个自"
-                  android:layout_toRightOf="@id/tt1"
-                  android:layout_below="@id/num"></TextView>
-        <TextView android:id="@+id/tt4" android:text="2001-1-1" android:layout_alignParentRight="true"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content" android:layout_toRightOf="@id/tt3"
-                  android:layout_below="@id/num" android:gravity="right"></TextView>
-
-    </RelativeLayout>
+    <com.example.SelfView android:layout_height="300dp" android:layout_width="fill_parent"></com.example.SelfView>
+    <Button android:text="Test" android:layout_height="fill_parent" android:layout_width="fill_parent"></Button>
 
 </LinearLayout>
 
