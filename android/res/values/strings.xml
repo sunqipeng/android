@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">android</string>
-    <color name="line_color">#ff00ff</color>
-    <array name="aaa">
-        <item></item>
-    </array>
-
-</resources>
