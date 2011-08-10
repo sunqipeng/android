@@ -4,17 +4,11 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
         >
-    <TextView android:id="@+id/tv"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:text="Hello World, MyActivity"
-            />
-    <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/button"
-            android:text="Zoom In"></Button>
-    <Button android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/out"
-            android:text="Zoom In"></Button>
-    <com.google.android.maps.MapView android:id="@+id/map" android:layout_height="fill_parent"
-                                     android:layout_width="fill_parent"
-                                     android:apiKey="0Uhzjsw3M37MfRxe_lXHC5zLVtxsvm4fE3HY9Vw"></com.google.android.maps.MapView>
+    <ListView android:layout_width="fill_parent" android:layout_height="wrap_content"
+              android:id="@+id/sensorListView"></ListView>
+    <ScrollView android:layout_height="fill_parent" android:layout_width="fill_parent">
+        <TextView android:id="@+id/orientation" android:layout_height="wrap_content"
+                  android:layout_width="fill_parent"></TextView>
+    </ScrollView>
 </LinearLayout>
 
