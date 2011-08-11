@@ -4,15 +4,14 @@
           android:versionCode="1"
           android:versionName="1.0">
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION">
-
-    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
+    <uses-permission android:name="android.permission.READ_SMS"></uses-permission>
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.BLUETOOTH"/>
-    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"></uses-permission>
+    <uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
     <uses-sdk android:minSdkVersion="3" android:targetSdkVersion="4"></uses-sdk>
-    <application android:label="@string/app_name">
+    <application android:label="@string/app_name" android:icon="@drawable/aaa">
         <activity android:name="MyActivity"
                   android:label="@string/app_name">
             <intent-filter>
@@ -20,11 +19,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <receiver android:name=".BlueListener">
+        <activity android:name=".Test">
             <intent-filter>
-                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"></action>
+                <action android:name="edu.sun.android.Test"></action>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
-        </receiver>
+        </activity>
+
 
         <uses-library android:name="com.google.android.maps"></uses-library>
 

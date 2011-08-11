@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="fill_parent"
-              android:layout_height="fill_parent"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             android:orientation="vertical"
+             android:layout_width="fill_parent"
+             android:layout_height="fill_parent"
         >
-    <ListView android:layout_width="fill_parent" android:layout_height="wrap_content"
-              android:id="@+id/sensorListView"></ListView>
-    <ScrollView android:layout_height="fill_parent" android:layout_width="fill_parent">
-        <TextView android:id="@+id/orientation" android:layout_height="wrap_content"
-                  android:layout_width="fill_parent"></TextView>
-    </ScrollView>
-</LinearLayout>
+    <com.google.android.maps.MapView android:layout_height="fill_parent" android:layout_width="fill_parent"
+                                     android:keepScreenOn="true" android:id="@+id/map"
+                                     android:apiKey="0Uhzjsw3M37MfRxe_lXHC5zLVtxsvm4fE3HY9Vw">
+
+    </com.google.android.maps.MapView>
+    <RelativeLayout android:layout_height="wrap_content" android:layout_width="fill_parent">
+        <android.widget.ZoomControls android:id="@+id/zoom" android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content"
+                                     android:layout_alignParentLeft="true"></android.widget.ZoomControls>
+        <Button android:id="@+id/location_self" android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@id/zoom"
+                android:text="Self"></Button>
+        <Button android:id="@+id/location_her" android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_toRightOf="@id/location_self"
+                android:text="Dear"></Button>
+    </RelativeLayout>
+</FrameLayout>
 
