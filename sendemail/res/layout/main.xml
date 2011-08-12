@@ -15,5 +15,13 @@
     <Button android:layout_height="wrap_content" android:id="@+id/imageButton2"
             android:layout_width="fill_parent"
             android:text="select"></Button>
+    <Button android:layout_height="wrap_content" android:id="@+id/imageButton3"
+            android:layout_width="fill_parent"
+            android:text="select"></Button>
+    <ScrollView android:layout_height="wrap_content" android:layout_width="wrap_content">
+        <ImageSwitcher android:layout_height="500dp" android:layout_width="fill_parent"
+                       android:id="@+id/imageswitch"></ImageSwitcher>
+
+    </ScrollView>
 </LinearLayout>
 
