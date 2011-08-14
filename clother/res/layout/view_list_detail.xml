@@ -9,6 +9,5 @@
     <TextView android:id="@+id/view_list_detail_name" android:layout_height="wrap_content"
               android:layout_width="200dp" android:layout_toRightOf="@id/view_list_detail_imageview"></TextView>
     <TextView android:id="@+id/view_list_detail_date" android:layout_height="wrap_content"
-              android:layout_width="fill_parent" android:layout_toRightOf="@id/view_list_detail_imageview"
-              android:layout_below="@id/view_list_detail_name"></TextView>
+              android:layout_width="fill_parent" android:layout_toRightOf="@id/view_list_detail_imageview"></TextView>
 </RelativeLayout>

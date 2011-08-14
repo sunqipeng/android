@@ -3,8 +3,12 @@ package com.example;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.hardware.Camera;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -15,6 +19,8 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -29,7 +35,9 @@ import java.util.Map;
  */
 public class ClothesList extends ListActivity {
     List<Map<String, ?>> list = new ArrayList<Map<String, ?>>();
+    Map<String, String> suolvetu = null;
     private static int CHOOSE_IMAGE = 0;
+    private static String TEMP_DIRECTORY = "/sdcard/aaaa/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,18 +77,25 @@ public class ClothesList extends ListActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("image/*");
-        Intent choose = Intent.createChooser(intent, "选择图片");
-        this.startActivityForResult(choose, ClothesList.CHOOSE_IMAGE);
+//        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+//        intent.setType("image/*");
+//        Intent choose = Intent.createChooser(intent, "选择图片");
+        //this.startActivityForResult(choose, ClothesList.CHOOSE_IMAGE);
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        this.startActivityForResult(intent, 999);
+
         return true;
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
+        super
+                .onActivityResult(requestCode, resultCode, data);
         if (resultCode == Activity.RESULT_OK) {
-            Map<String, Object> map = new HashMap<String, Object>();
+
+            Object object = data.getExtras().get("data");
+
+            Log.e("app", object.toString());
         }
     }
 
@@ -112,7 +127,15 @@ public class ClothesList extends ListActivity {
         SimpleAdapter.ViewBinder viewBinder = new SimpleAdapter.ViewBinder() {
             public boolean setViewValue(View view, Object o, String s) {
                 if (view.getId() == R.id.test2) {
-                    ((ImageView) view).setImageURI((Uri) o);
+
+                    File f = new File(((Uri) o).getPath());
+                    //Bitmap t = BitmapFactory.decodeFile(f.getAbsolutePath());
+                    Bitmap bitmap = BitmapFactory.decodeFile(((Uri) o).getPath());
+                    if (bitmap == null)
+                        return false;
+                    Bitmap t = Bitmap.createScaledBitmap(bitmap, bitmap.getWidth() / 20, bitmap.getHeight() / 20, true);
+                    ((ImageView) view).setImageBitmap(t);
+
                     return true;
                 } else {
                     return false;
@@ -120,10 +143,44 @@ public class ClothesList extends ListActivity {
 
             }
         };
+        Camera camera = Camera.open();
 
         SimpleAdapter simpleAdapter = new SimpleAdapter(this, list, R.layout.test_detail, new String[]{"name", "image"}, new int[]{R.id.test, R.id.test2});
         simpleAdapter.setViewBinder(viewBinder);
         this.setListAdapter(simpleAdapter);
+    }
+
+
+    /**
+     * @param file
+     * @return
+     * @throws FileNotFoundException
+     */
+    private String checkExist(File file) throws FileNotFoundException {
+
+        if (suolvetu == null) {
+            suolvetu = new HashMap<String, String>();
+            File f = new File(ClothesList.TEMP_DIRECTORY);
+            for (String str : f.list()) {
+                suolvetu.put(str, ClothesList.TEMP_DIRECTORY);
+            }
+            build(file);
+        } else {
+            if (suolvetu.containsKey(file.getName())) {
+                return suolvetu.get(file.getName());
+            } else {
+                build(file);
+            }
+        }
+
+        File f = new File(ClothesList.TEMP_DIRECTORY + file.getName());
+        return f.getAbsolutePath();
+    }
+
+    private void build(File file) throws FileNotFoundException {
+        File f = new File(ClothesList.TEMP_DIRECTORY + file.getName());
+        Bitmap bitmap = BitmapFactory.decodeFile(file.getAbsolutePath());
+        Bitmap.createScaledBitmap(bitmap, bitmap.getWidth() / 10, bitmap.getHeight() / 10, true).compress(Bitmap.CompressFormat.JPEG, 80, new FileOutputStream(f));
     }
 
 
